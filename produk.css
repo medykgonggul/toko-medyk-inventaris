@@ -1,0 +1,1470 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+    line-height: 1.6;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 7%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5eaf2;
+}
+
+.brand {
+    color: #2563eb;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: #475569;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+}
+
+.page-heading {
+    padding: 38px 0 22px;
+}
+
+.eyebrow {
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.page-heading h1 {
+    margin: 5px 0;
+    font-size: clamp(28px, 4vw, 38px);
+}
+
+.page-heading > p:last-child,
+.section-heading p {
+    color: #64748b;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 20px 0 28px;
+}
+
+.stat-card,
+.panel {
+    background: #ffffff;
+    border: 1px solid #e5eaf2;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+}
+
+.stat-card {
+    padding: 22px;
+}
+
+.stat-icon {
+    font-size: 25px;
+}
+
+.stat-card h3 {
+    margin: 12px 0 5px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.stat-card p {
+    margin: 0;
+    font-size: clamp(21px, 3vw, 28px);
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.panel {
+    padding: 24px;
+    margin-bottom: 26px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 21px;
+}
+
+.section-heading p {
+    margin: 4px 0 20px;
+    font-size: 14px;
+}
+
+#formProduk {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #172033;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
+
+.btn {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary {
+    grid-column: 1 / -1;
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input {
+    flex: 1;
+}
+
+.result-count {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.produk {
+    min-width: 0;
+    padding: 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow-wrap: anywhere;
+}
+
+.produk h2 {
+    margin: 0 0 12px;
+    font-size: 19px;
+}
+
+.produk p {
+    margin: 7px 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.produk button {
+    padding: 9px 11px;
+    margin: 12px 5px 0 0;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.produk button:first-of-type {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.produk button:last-of-type {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.produk button:hover {
+    opacity: 0.8;
+}
+
+.footer {
+    margin-top: 35px;
+    padding: 22px;
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+    background: #ffffff;
+    border-top: 1px solid #e5eaf2;
+}
+
+@media (max-width: 800px) {
+    .dashboard,
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #formProduk {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #formProduk .btn-primary {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 560px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .dashboard,
+    .product-grid,
+    #formProduk {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 17px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar .btn {
+        width: 100%;
+    }
+
+    #formProduk .btn-primary {
+        grid-column: auto;
+    }
+}
+
+/* Status stok produk */
+.stok-aman {
+    color: #15803d;
+    background-color: #dcfce7;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.stok-menipis {
+    color: #b45309;
+    background-color: #fef3c7;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.stok-habis {
+    color: #b91c1c;
+    background-color: #fee2e2;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.filter-stok {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0;
+    max-width: 320px;
+}
+
+.filter-stok label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.filter-stok select {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    font-size: 15px;
+    width: 100%;
+}
+
+.filter-stok select:focus {
+    outline: 2px solid #2563eb;
+    border-color: #2563eb;
+}
+
+#tombolExport {
+    background-color: #15803d;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+#tombolExport:hover {
+    background-color: #166534;
+}
+
+#tombolExport:focus-visible {
+    outline: 3px solid #86efac;
+    outline-offset: 3px;
+}
+
+.import-produk {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 16px 0;
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.import-produk label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.import-produk input {
+    max-width: 100%;
+}
+
+#tombolImport {
+    padding: 11px 16px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#tombolImport:hover {
+    background: #1d4ed8;
+}
+
+.riwayat-stok {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.riwayat-stok h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.tabel-riwayat {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabel-riwayat table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+.tabel-riwayat th,
+.tabel-riwayat td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tabel-riwayat th {
+    background: #f1f5f9;
+}
+
+.filter-riwayat {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.filter-riwayat select {
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+}
+
+.laporan-transaksi {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.laporan-transaksi h2 {
+    margin-top: 0;
+}
+
+.ringkasan-transaksi {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.kartu-laporan {
+    padding: 15px;
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.kartu-laporan h3 {
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.kartu-laporan p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .ringkasan-transaksi {
+        grid-template-columns: 1fr;
+    }
+}
+
+#tombolExportLaporan {
+    margin-top: 20px;
+    padding: 12px 18px;
+    background-color: #15803d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#tombolExportLaporan:hover {
+    background-color: #166534;
+}
+
+/* Tombol cetak laporan */
+#tombolCetakLaporan {
+    margin-top: 20px;
+    margin-left: 8px;
+    padding: 12px 18px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#tombolCetakLaporan:hover {
+    background-color: #1d4ed8;
+}
+
+/* Tampilan khusus ketika halaman dicetak */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 12px;
+    }
+
+    /* Sembunyikan bagian yang tidak dibutuhkan */
+    button,
+    form,
+    .filter-riwayat,
+    #inputCari,
+    #filterStok,
+    #tombolReset,
+    #tombolExport,
+    #fileImport,
+    #tombolImport {
+        display: none !important;
+    }
+
+    /* Hilangkan bayangan dan rapikan bagian laporan */
+    .laporan-transaksi,
+    .riwayat-stok {
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+        margin: 10px 0;
+        padding: 12px;
+        break-inside: avoid;
+    }
+
+    .ringkasan-transaksi {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .tabel-riwayat {
+        overflow: visible !important;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid #999;
+        padding: 6px;
+        color: black !important;
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: black !important;
+    }
+}
+
+.grafik-inventaris {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.grafik-inventaris h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.grafik-inventaris canvas {
+    width: 100% !important;
+    max-height: 350px;
+}
+
+@media (max-width: 600px) {
+    .grafik-inventaris {
+        padding: 12px;
+    }
+}
+
+.filter-tanggal-laporan {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.filter-tanggal-laporan > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-tanggal-laporan input {
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.filter-tanggal-laporan button {
+    padding: 11px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.filter-tanggal-laporan button:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 600px) {
+    .filter-tanggal-laporan > div {
+        width: 100%;
+    }
+
+    .filter-tanggal-laporan input {
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
+@media print {
+    .filter-tanggal-laporan {
+        display: none !important;
+    }
+}
+
+/* ===== HARI 29: DESAIN DASHBOARD PROFESIONAL ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    background: #f1f5f9;
+    color: #1e293b;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #0f172a;
+    line-height: 1.3;
+}
+
+h1 {
+    margin-bottom: 24px;
+    font-size: clamp(24px, 4vw, 34px);
+}
+
+h2 {
+    margin-top: 32px;
+    margin-bottom: 18px;
+    font-size: 23px;
+}
+
+/* Kartu produk */
+#daftarProduk {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 260px), 1fr)
+    );
+    gap: 20px;
+    align-items: stretch;
+}
+
+#daftarProduk > * {
+    min-width: 0;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+#daftarProduk > *:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.09);
+}
+
+/* Input dan pilihan filter */
+input,
+select,
+textarea {
+    max-width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1e293b;
+    font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
+
+/* Tombol */
+button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}
+
+/* Kartu laporan */
+.kartu-laporan {
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.ringkasan-transaksi {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 190px), 1fr)
+    );
+    gap: 18px;
+}
+
+.kartu-laporan h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #64748b;
+}
+
+.kartu-laporan p {
+    margin-bottom: 0;
+    font-size: 27px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+/* Bagian laporan dan grafik */
+.laporan-transaksi,
+.grafik-inventaris {
+    margin-top: 28px;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.grafik-inventaris canvas {
+    max-width: 100%;
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+th,
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+th {
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 700;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Filter tanggal */
+.filter-tanggal-laporan {
+    gap: 12px;
+    align-items: end;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+    body {
+        padding: 14px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    #daftarProduk {
+        grid-template-columns: 1fr;
+    }
+
+    .laporan-transaksi,
+    .grafik-inventaris,
+    .kartu-laporan {
+        padding: 15px;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th,
+    td {
+        padding: 9px;
+    }
+}
+
+/* Tetap hemat tinta saat mencetak laporan */
+@media print {
+    body {
+        padding: 0;
+        background: #ffffff;
+    }
+
+    #daftarProduk > *,
+    .kartu-laporan,
+    .laporan-transaksi,
+    .grafik-inventaris {
+        box-shadow: none;
+    }
+}
+
+/* PERBAIKAN RESPONSIF HARI 29 */
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+canvas {
+    max-width: 100%;
+}
+
+input,
+select,
+textarea {
+    min-width: 0;
+    max-width: 100%;
+}
+
+button {
+    overflow-wrap: anywhere;
+}
+
+/* Bungkus tabel agar bisa digeser di HP */
+.table-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Tampilan layar kecil */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .filter-tanggal-laporan {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-tanggal-laporan > div,
+    .filter-tanggal-laporan input,
+    .filter-tanggal-laporan button {
+        width: 100%;
+    }
+
+    .ringkasan-transaksi {
+        grid-template-columns: 1fr;
+    }
+
+    #daftarProduk {
+        grid-template-columns: 1fr;
+    }
+
+    .laporan-transaksi,
+    .grafik-inventaris {
+        padding: 14px;
+    }
+}
+
+body {
+    background-color: #f1f5f9 !important;
+}
+
+.kartu-laporan {
+    background-color: #ffffff !important;
+    border: 2px solid #2563eb !important;
+    border-radius: 16px !important;
+}
+
+/* ===== PERBAIKAN DESAIN PRODUCTHUB ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f1f5f9;
+    color: #1e293b;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigasi */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 5%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+}
+
+.navbar .brand {
+    color: #2563eb;
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #475569;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+/* Konten utama */
+.container {
+    width: min(1120px, 92%);
+    margin: 32px auto;
+}
+
+.page-heading {
+    margin-bottom: 28px;
+}
+
+.page-heading .eyebrow {
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.page-heading h1 {
+    margin: 8px 0;
+    font-size: clamp(27px, 4vw, 36px);
+}
+
+.page-heading > p:last-child {
+    color: #64748b;
+}
+
+/* Kartu ringkasan dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 5px 16px rgba(15, 23, 42, 0.05);
+}
+
+.stat-icon {
+    font-size: 28px;
+}
+
+.stat-card h3 {
+    margin: 10px 0 4px;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.stat-card p {
+    margin: 0;
+    color: #2563eb;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+/* Panel formulir dan produk */
+.panel {
+    margin: 24px 0;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 5px 16px rgba(15, 23, 42, 0.04);
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    margin: 0 0 6px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #64748b;
+}
+
+/* Formulir */
+#formProduk {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label,
+.filter-stok label,
+.import-produk label {
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #1e293b;
+    font: inherit;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
+
+.filter-stok {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#formProduk button {
+    align-self: end;
+}
+
+/* Tombol */
+button {
+    padding: 11px 15px;
+    border: none;
+    border-radius: 9px;
+    background: #2563eb;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: #64748b;
+}
+
+.btn-secondary:hover {
+    background: #475569;
+}
+
+/* Import dan pencarian */
+.import-produk {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 18px 0 28px;
+}
+
+.import-produk input {
+    max-width: 300px;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.result-count {
+    color: #64748b;
+}
+
+/* Kartu produk */
+.product-grid,
+#daftarProduk {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
+.product-grid > *,
+#daftarProduk > * {
+    min-width: 0;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.product-grid button,
+#daftarProduk button {
+    margin: 4px 4px 4px 0;
+}
+
+/* Laporan dan grafik */
+.laporan-transaksi,
+.riwayat-stok {
+    width: min(1120px, 92%);
+    margin: 28px auto;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 5px 16px rgba(15, 23, 42, 0.04);
+}
+
+.ringkasan-transaksi {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.kartu-laporan {
+    min-width: 0;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.kartu-laporan h3 {
+    margin-top: 0;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.kartu-laporan p {
+    margin-bottom: 0;
+    color: #2563eb;
+    font-size: 25px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.filter-tanggal-laporan {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.filter-tanggal-laporan > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.grafik-inventaris {
+    margin-top: 24px;
+    padding: 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.grafik-inventaris canvas {
+    display: block;
+    max-width: 100%;
+}
+
+/* Tabel riwayat */
+.tabel-riwayat {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabel-riwayat table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+.tabel-riwayat th,
+.tabel-riwayat td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.tabel-riwayat th {
+    background: #f8fafc;
+}
+
+/* Footer */
+.footer {
+    margin-top: 36px;
+    padding: 24px 12px;
+    background: #0f172a;
+    color: #e2e8f0;
+    text-align: center;
+}
+
+/* Responsif tablet */
+@media (max-width: 850px) {
+    .dashboard,
+    .ringkasan-transaksi {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product-grid,
+    #daftarProduk {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #formProduk {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Responsif HP */
+@media (max-width: 600px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 4%;
+    }
+
+    .nav-links {
+        width: 100%;
+        gap: 10px 16px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 92%;
+        margin-top: 22px;
+    }
+
+    .dashboard,
+    .ringkasan-transaksi,
+    .product-grid,
+    #daftarProduk,
+    #formProduk {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .panel,
+    .laporan-transaksi,
+    .riwayat-stok {
+        width: 92%;
+        padding: 16px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar button,
+    #formProduk button {
+        width: 100%;
+    }
+
+    .filter-tanggal-laporan {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .filter-tanggal-laporan button {
+        width: 100%;
+    }
+
+    .import-produk {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .import-produk input {
+        max-width: 100%;
+    }
+}
+
+/* Pengaturan cetak laporan */
+@media print {
+    body {
+        background: #ffffff;
+    }
+
+    .navbar,
+    .page-heading,
+    #form-area,
+    #produk-area,
+    #tombolExport,
+    .import-produk,
+    #tombolExportLaporan,
+    #tombolCetakLaporan,
+    .filter-tanggal-laporan,
+    .filter-riwayat,
+    .footer {
+        display: none !important;
+    }
+
+    .laporan-transaksi,
+    .riwayat-stok {
+        width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+}
