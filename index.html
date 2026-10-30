@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProductHub - Manajemen Produk</title>
+    <link rel="stylesheet" href="produk.css?v=29">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand">Toko Medyk</a>
+
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#form-area">Tambah Produk</a>
+            <a href="#produk-area">Daftar Produk</a>
+        </div>
+
+    </nav>
+
+    <main class="container">
+        <section class="page-heading">
+            <p class="eyebrow">MANAJEMEN INVENTARIS</p>
+            <h1>Dashboard Produk</h1>
+            <p>Kelola produk, harga, dan stok dengan mudah.</p>
+        </section>
+
+        <section id="dashboard" class="dashboard">
+            <div class="stat-card">
+                <span class="stat-icon">📦</span>
+                <h3>Jenis Produk</h3>
+                <p id="totalJenis">0</p>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">📊</span>
+                <h3>Total Stok</h3>
+                <p id="totalStok">0</p>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">💰</span>
+                <h3>Nilai Persediaan</h3>
+                <p id="nilaiPersediaan">Rp 0</p>
+            </div>
+        </section>
+           
+           
+             <button id="tombolExport" type="button">
+                 Download Data Produk (CSV)
+            </button>
+            
+            <div class="import-produk">
+            <label for="fileImport">Import data produk dari CSV:</label>
+            <input
+                type="file"
+                id="fileImport"
+                accept=".csv,text/csv"
+           />
+         <button type="button" id="tombolImport">
+             Import Produk
+         </button>
+         </div>
+
+
+
+        <section id="form-area" class="panel">
+            <div class="section-heading">
+                <h2>Tambah Produk Baru</h2>
+                <p>Isi informasi produk yang ingin ditambahkan.</p>
+            </div>
+
+            <form id="formProduk">
+                <div class="form-group">
+                    <label for="namaProduk">Nama produk</label>
+                    <input type="text" id="namaProduk"
+                        placeholder="Contoh: Kamera" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hargaProduk">Harga (Rp)</label>
+                    <input type="number" id="hargaProduk"
+                        placeholder="Contoh: 3000000"
+                        min="1" step="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="stokProduk">Jumlah stok</label>
+                    <input type="number" id="stokProduk"
+                        placeholder="Contoh: 7"
+                        min="0" step="1" required>
+                </div>
+
+                
+<div class="filter-stok">
+    <label for="filterStok">Filter Status Stok:</label>
+
+    <select id="filterStok">
+        <option value="semua">Semua Produk</option>
+        <option value="menipis">Stok Menipis</option>
+        <option value="habis">Stok Habis</option>
+        <option value="aman">Stok Aman</option>
+    </select>
+</div>
+
+
+                <button type="submit" class="btn btn-primary">
+                    + Tambah Produk
+                </button>
+            </form>
+        </section>
+
+        <section id="produk-area" class="panel">
+            <div class="section-heading">
+                <h2>Daftar Produk</h2>
+                <p>Cari dan kelola produk yang tersimpan.</p>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="inputCari"
+                    placeholder="Cari nama produk...">
+                <button type="button" id="tombolReset"
+                    class="btn btn-secondary">Reset</button>
+            </div>
+
+            <p id="jumlahProduk" class="result-count"></p>
+            <div id="daftarProduk" class="product-grid"></div>
+        </section>
+    </main>
+
+
+  
+<section class="laporan-transaksi">
+    <h2>Laporan Transaksi Inventaris</h2>
+     
+<div class="filter-tanggal-laporan">
+    <div>
+        <label for="tanggalMulaiLaporan">Dari tanggal</label>
+        <input type="date" id="tanggalMulaiLaporan">
+    </div>
+
+    <div>
+        <label for="tanggalAkhirLaporan">Sampai tanggal</label>
+        <input type="date" id="tanggalAkhirLaporan">
+    </div>
+
+    <button type="button" id="tombolFilterTanggal">
+        Terapkan Filter
+    </button>
+
+    <button type="button" id="tombolResetTanggal">
+        Reset
+    </button>
+</div>
+ 
+    <div class="ringkasan-transaksi">
+        <div class="kartu-laporan">
+            <h3>Total Barang Masuk</h3>
+            <p id="totalBarangMasuk">0 unit</p>
+        </div>
+
+        <div class="kartu-laporan">
+            <h3>Total Barang Keluar</h3>
+            <p id="totalBarangKeluar">0 unit</p>
+        </div>
+
+        <div class="kartu-laporan">
+            <h3>Total Transaksi</h3>
+            <p id="jumlahTransaksi">0</p>
+        </div>
+    </div>
+    
+<div class="grafik-inventaris">
+    <h3>Grafik Barang Masuk dan Keluar</h3>
+    <canvas id="grafikInventaris"></canvas>
+</div>
+
+</section>
+  
+<section class="riwayat-stok">
+    <h2>Riwayat Perubahan Stok</h2>
+    <div class="filter-riwayat">
+        <label for="filterRiwayat">Filter transaksi:</label>
+
+        <select id="filterRiwayat">
+            <option value="semua">Semua Transaksi</option>
+            <option value="masuk">Barang Masuk</option>
+            <option value="keluar">Barang Keluar</option>
+            <option value="perubahan">Perubahan Stok Lainnya</option>
+        </select>
+    </div>
+
+    <div class="tabel-riwayat">
+        <table>
+            <thead>
+                <tr>
+                    <th>Waktu</th>
+                    <th>Nama Produk</th>
+                    <th>Jenis Perubahan</th>
+                    <th>Stok Awal</th>
+                    <th>Stok Akhir</th>
+                </tr>
+            </thead>
+
+            <tbody id="daftarRiwayat">
+                <tr>
+                    <td colspan="5">
+                        Belum ada riwayat stok.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<button type="button" id="tombolExportLaporan">
+    Export Laporan CSV
+</button>
+
+
+<button type="button" id="tombolCetakLaporan">
+    Cetak Laporan
+</button>
+
+ <footer class="footer">
+        <p>© 2026 ProductHub | Latihan Web Developer</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="produk.js"></script>
+
+</body>
+</html>
